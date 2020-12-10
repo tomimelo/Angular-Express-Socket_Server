@@ -4,7 +4,7 @@ import router from "./routes/router";
 import { json } from "express";
 import cors from "cors";
 
-const server = new Server();
+const server = Server.instance;
 
 server.app.use(json());
 

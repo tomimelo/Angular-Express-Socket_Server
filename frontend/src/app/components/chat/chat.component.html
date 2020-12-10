@@ -1,0 +1,22 @@
+<div class="card m-5 p-3">
+    <div class="card-body">
+        <h1>Messages</h1>
+        <hr>
+
+        <div id="chat-box">
+            <li *ngFor="let msg of messages" class="list-group-item">
+                {{msg.from}}: {{msg.message}}
+            </li>
+        </div>
+        
+        <form (ngSubmit)="send()">
+            <input type="text"
+                   [(ngModel)]="message"
+                   class="form-control chat-msg"
+                   name="message"
+                   placeholder="Message..."
+                   autofocus
+                   autocomplete="off">
+        </form>
+    </div>
+</div>
