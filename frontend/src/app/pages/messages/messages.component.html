@@ -1,5 +1,8 @@
 <div class="container">
-    <h1>Usuario: <small>{{wsService.user.name}}</small></h1>
+    <div class="d-flex align-items-center">
+        <h1>Usuario: <small>{{wsService.user.name}}</small></h1>
+        <button class="btn btn-danger btn-sm ms-3" (click)="logout()">Logout</button>
+    </div>
     
     <hr>
     

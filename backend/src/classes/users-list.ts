@@ -20,7 +20,7 @@ export class UsersList {
     }
 
     public getList() {
-        return this.list;
+        return this.list.filter(user => user.name !== "anonymous");
     }
 
     public getUser(id: string) {

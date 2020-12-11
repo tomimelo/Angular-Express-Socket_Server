@@ -1,7 +1,41 @@
 import {Router, Request, Response} from 'express';
 import Server from '../classes/server';
+import { connectedUsers } from '../sockets/sockets';
 
 const router = Router();
+
+router.get('/users', async (req: Request, res: Response) => {
+            
+    res.json({
+        ok: true,
+        users: connectedUsers.getList()
+    });
+
+});
+
+router.get('/sockets', async (req: Request, res: Response) => {
+
+    const server = Server.instance;
+
+    try {
+
+        const sockets = Array.from(await server.io.allSockets()); //ids obtained like a Set object, then converted to array
+        
+        res.json({
+            ok: true,
+            sockets
+        });
+        
+    } catch (error) {
+
+        res.json({
+            ok: false,
+            error
+        });
+        
+    }
+
+});
 
 router.get('/messages', (req: Request, res: Response) => {
     res.json({
