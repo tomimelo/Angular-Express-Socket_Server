@@ -4,7 +4,7 @@ import { connectedUsers } from '../sockets/sockets';
 
 const router = Router();
 
-router.get('/users', async (req: Request, res: Response) => {
+router.get('/users', (req: Request, res: Response) => {
             
     res.json({
         ok: true,
@@ -35,13 +35,6 @@ router.get('/sockets', async (req: Request, res: Response) => {
         
     }
 
-});
-
-router.get('/messages', (req: Request, res: Response) => {
-    res.json({
-        ok: true,
-        msg: "All ok!"
-    });
 });
 
 router.post('/messages', (req: Request, res: Response) => {

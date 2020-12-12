@@ -8,9 +8,9 @@ const server = Server.instance;
 
 server.app.use(json());
 
-server.app.use(cors({origin: true, credentials: true}))
+server.app.use(cors({origin: true, credentials: true}));
 
-server.app.use('/', router)
+server.app.use('/', router);
 
 server.start( () => {
     console.log(`Server running on port ${SERVER_PORT}`);
